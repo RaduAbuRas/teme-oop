@@ -1,0 +1,141 @@
+#include<fstream>
+#include<string.h>
+#include<ctype.h>
+#include<iostream>
+#include<algorithm>
+#include<map>
+#include<unordered_map>
+#include<array>
+#include<functional>
+#include<deque>
+#include<math.h>
+#include<unordered_set>
+#include<queue>
+#include<set>
+#include<iomanip>
+#include<bitset>
+using namespace std;
+int n;
+class complex
+{
+private:
+	int a, b;
+public:
+	complex()
+	{
+		a = 0;
+		b = 0;
+	}
+	complex(int x)
+	{
+		a = x;
+		b = 0;
+	}
+	complex(int x, int y)
+	{
+		a = x;
+		b = y;
+	}
+	complex operator +(const complex &el)
+	{
+		complex nr;
+		nr.a=this->a + el.a;
+		nr.b=this->b + el.b;
+		return nr;
+	}
+	complex operator -(const complex &el)
+	{
+		complex nr;
+		nr.a = this->a - el.a;
+		nr.b = this->b - el.b;
+		return nr;
+	}
+	complex operator *(const complex &el)
+	{
+		complex nr;
+		nr.a = this->a * el.a - this->b * el.b;
+		nr.b = this->b + el.a + this->a*el.b;
+		return nr;
+	}
+	complex operator /(const complex &el)
+	{
+		complex nr;
+		int aux = el.a*el.a + el.b*el.b;
+		nr.a = (this->a*el.a + this->b*el.b) / aux;
+		nr.b = (this->b*el.a - this->a*el.b) / aux;
+		return nr;
+	}
+
+	void operator =(const complex &el)
+	{
+		this->a = el.a;
+		this->b = el.b;
+	}
+
+	void operator ~()
+	{
+		cout << "Modulul numarului complex este: ";
+		cout << sqrt(a*a + b*b);
+		cout << '\n';
+	}
+	void operator ^(const int putere)
+	{
+		complex nr;
+		nr.a = 1;
+		nr.b = 0;
+		for (int i = 1; i <= putere; i++)
+		{
+			int prv = nr.a;
+			nr.a = this->a * nr.a - this->b * nr.b;
+			nr.b = this->a * nr.b + this->b * prv;
+		}
+		this->a= nr.a;
+		this->b = nr.b;
+	}
+	void afisare()
+	{
+		cout << "Numarul complex este: " << a << "+(" << b << ")i\n";
+	}
+};
+int main()
+{
+	complex nr1;
+	complex nr2(5);
+	complex nr3(2, 3);
+	nr1 = nr2 + nr3;
+	complex nr4 = nr1;
+	nr4.afisare();
+	~nr4;
+	nr4 ^ 3;
+	nr4.afisare();
+	complex nr5(4, 6);
+	nr4 = nr5 / nr3;
+	nr4.afisare();
+	cout << "Citim n: ";
+	cin >> n;
+	cout << "Citim cele 2*n numere:\n";
+	complex *numbers[100];
+	for (int i = 1; i <= 2*n; i++)
+	{
+		int x, y;
+		cout << "a= ";
+		cin >> x;
+		cout << "b= ";
+		cin >> y;
+		numbers[i] = new complex(x, y);
+	}
+	complex rezultat,i1,i2,i3;
+	for (int i = 1; i <= 2 * n - 1; i += 2)
+	{
+		*numbers[i] ^ 3;
+		i1 = i1 + *numbers[i];
+	}
+	for (int i = 2; i <= 2 * n; i += 2)
+	{
+		*numbers[i] ^ 4;
+		i2 = i2 + *numbers[i];
+	}
+	rezultat = i1 / i2;
+	rezultat.afisare();
+	return 0;
+}
