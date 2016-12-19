@@ -1,0 +1,34 @@
+Exemplul dvs + o operatie in plus
+5			
+
+0,1,2,3,4
+
+0 op 0 = 0
+0 op 1 = 1
+0 op 2 = 2
+0 op 3 = 3
+0 op 4 = 4
+1 op 0 = 1
+1 op 1 = 2
+1 op 2 = 3
+1 op 3 = 4
+1 op 4 = 0
+2 op 0 = 2
+2 op 1 = 3
+2 op 2 = 4
+2 op 3 = 0
+2 op 4 = 1
+3 op 0 = 3
+3 op 1 = 4
+3 op 2 = 0
+3 op 3 = 1
+3 op 4 = 2
+4 op 0 = 4
+4 op 1 = 0
+4 op 2 = 1
+4 op 3 = 2
+4 op 4 = 3
+
+-comutativa
+-asociativa
+-grup comutativ

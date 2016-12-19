@@ -1,0 +1,14 @@
+Exemplu 3 adunarea a doua numere fara element neutru
+4
+
+10 , 15 , 30
+
+10 op 10 = 20
+10 op 15 = 25
+10 op 30 = 40
+15 op 10 = 25
+15 op 30 = 45
+15 op 15 = 30
+30 op 10 = 40
+30 op 15 = 45
+30 op 30 = 60
