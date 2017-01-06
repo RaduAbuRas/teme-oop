@@ -1,0 +1,131 @@
+aconturi = {}
+aconturi["test"] = "test"
+
+class Account():
+    def __init__(self, name, parola):
+        self.name = name
+        self.no = parola
+        self.balance = 0
+
+
+    def autentificare(self , name , parola):
+        ok = 0
+        for keys in aconturi:
+            if keys == name:
+                if aconturi[name][0] == parola:
+                    self.name = name
+                    self.no = parola
+                    self.balance = aconturi[name][1]
+                    print("V-ati autentificat cu succes , bun venit " , name)
+                    print()
+                    print("Suma currenta este : " , aconturi[name][1])
+                    ok = 1
+
+        if ok == 0:
+            print("Datele introduse sunt gresite")
+
+
+    def creare(self, name ,parola):
+        ok = 1
+        for keys in aconturi:
+            if keys == name:
+                ok = 0
+
+        if ok == 1:
+            aconturi.setdefault(name, [])
+            aconturi[name].append(parola)
+            aconturi[name].append(0)
+            print("Acontul a fost creat cu succes")
+            Account.autentificare(self,name,parola)
+            print()
+        else:
+            print("Acontul exista deja")
+            print()
+
+
+    def inchiderecont(self, name):
+        ok = 0
+        for keys in aconturi:
+            if keys == name:
+                ok = 1
+
+        if ok == 0:
+            print("Acontul introdus nu exista")
+            print()
+        else:
+            print("Pentru a sterge acontul va rog introduceti parola:")
+            parola = input()
+            if aconturi[name][0] != parola:
+                print("Parola introdusa este gresita")
+            else:
+                aconturi.pop(name, None)
+                print("Acontul a fost sters cu succes")
+                print()
+
+
+    def deposit(self, amount):
+        self.balance += amount
+        aconturi[self.name][1] += amount
+        print("Ati depositat cu succes suma de " , amount , " in contul " , self.name)
+        print()
+
+
+    def withdraw(self, amount):
+        if aconturi[self.name][1] - amount < 0:
+            print("Suma ceruta nu poate fi extrasa")
+            print()
+        else:
+            print("Ati extras cu succes suma de ", amount, " in contul ", self.name)
+            print()
+            aconturi[self.name][1] -= amount
+            self.balance -= amount
+
+    def transfer(self,nume2,suma):
+        ok = 0
+        for keys in aconturi:
+            if keys == nume2:
+                ok = 1
+
+        if aconturi[self.name][1] - suma < 0:
+            print("Suma ceruta nu poate fi transferata")
+            print()
+        else:
+            if ok == 1:
+                aconturi[self.name][1] -= suma
+                self.balance -= suma
+                aconturi[nume2][1] += suma
+                print("Ati transferat cu succes suma de " , suma , " din contul " , self.name , " in contul " , nume2)
+            else :
+                print("Al doilea acont nu exista , transfer anulat")
+
+
+    def dump(self):
+        s = '%s, %s, balance: %s' % \
+            (self.name, self.no, self.balance)
+        print(s)
+        print()
+
+
+
+a1 = Account("marian" , "imbecilul")
+a1.creare("marian" , "imbecilul")
+a1.deposit(100)
+a1.dump()
+
+a1 = Account("ion","plm")
+a1.creare("ion","plm")
+a1.deposit(300)
+
+a1.transfer("marian",40)
+a1.dump()
+a1.autentificare("marian","imbecilul")
+
+
+'''
+a2 = Account("Martin", '19371554951')
+a1.deposit(1000)
+a1.withdraw(4000)
+print ("a1's balance:", a1.balance)
+a1.dump()
+a2.dump()
+'''
