@@ -3,9 +3,13 @@ pentru a stoca conturile bancare folosesc un dictionar in care , la fiecare chei
 -parola atribuita cheii (sau numele utilizatorului)
 -suma de bani depusa in cont
 ex: conturi["andrei"][0] = masina33 (parola)
-    conturi["andrei"][1] = 150 (sold in lei
+    conturi["andrei"][1] = 150 (sold in lei)
 '''
 conturi = {}
+'''
+am adaug un "test" in dictionar deoarece la un moment dat iterez prin el si se poate sa apara o eroare in cazul in care
+este gol
+'''
 conturi["test"] = "test"
 #folosesc o singura clasa in care sunt incluse toate functiile
 class Banca():
@@ -31,7 +35,7 @@ class Banca():
                     self.parola = parola
                     self.sold = conturi[nume][1]
                     print("V-ati autentificat cu succes , bun venit " , nume , "\n")
-                    print("Suma currenta este de " , conturi[nume][1] , " lei\n")
+                    print("Soldul din contul dvs. este de " , conturi[nume][1] , " lei\n")
                     ok = 1
         #in cazul in care niciun nume nu se potriveste cu una din chei atunci afisez un mesaj si atat
         if ok == 0:
@@ -151,6 +155,7 @@ def MENIU():
     print("Optiunea 5 : Extrage o suma de bani (lei) din cont ")
     print("Optiunea 6 : Transfera o suma de bani dintr-un cont in altul")
     print("Optiunea 7 : Afisaza raportul contului logat curent")
+    print("Optiunea 8 : Iesire din program")
     tip = input("Alegeti optiunea : ")
     if tip == '1':
         print()
@@ -214,7 +219,7 @@ def MENIU():
             print("Nu v-ati logat inca , selectati prima sau a doua optiune\n")
             MENIU()
         else:
-            #pentru transfer este nevoie de al doilea cont si suma dorita
+            #pentru transfer este nevoie de numele celui de-al doilea cont si suma dorita
             nume2 = input("Selectati contul in care doriti sa transferati bani : ")
             suma = input("Selectati suma pe care doriti sa o transferati : ")
             user.transfer(nume2 , int(suma))
@@ -227,6 +232,9 @@ def MENIU():
             print()
             user.date()
             MENIU()
+    elif tip =='8':
+        print()
+        print("Programul se va inchide.")
     else:
         print("\nOptiunea aleasa este invalida , introduceti alta.\n")
         MENIU()
