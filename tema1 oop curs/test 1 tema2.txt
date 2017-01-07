@@ -1,0 +1,56 @@
+Programul contine un meniu in care puteti sa dati dvs. orice input doriti
+Nu am inclus toate cazurile posibile deoarece sunt foarte multe erori si cazuri speciale pe care le-am inclus
+si testul ar arata foarte lung , dar bine inteles ca le puteti incerca dvs precum sa stergeti un cont si sa-l creati din nou
+Cateva exemple si ce ar trebuii sa arate
+in meniul din consola :
+
+input                  			 mesaj
+
+4 		-> 	Nu v-ati logat inca , selectati prima sau a doua optiune
+7 		-> 	Nu v-ati logat inca , selectati prima sau a doua optiune
+
+1 		-> 	Introduceti numele countului . Numele poate sa contina spatii sau simboluri : 
+Popescu 	-> 	Introduceti parola . De poate trebuie sa contina spatii sau simboluri : 
+123456 		-> 	Contul a fost creat cu succes
+
+2 		-> 	Introduceti numele contului : 
+Popescu 	-> 	Introduceti parola contului :
+asdf 		-> 	Datele introduse sunt gresite
+
+2 		-> 	Introduceti numele contului : 
+Popescu 	-> 	Introduceti parola contului :
+123456 		-> 	V-ati autentificat cu succes , bun venit  Popescu 
+
+	  		Soldul din contul dvs. este de  0  lei
+
+4 		->	Selectati suma pe care doriti sa o depozitati :
+100		->	Ati depozitat cu succes suma de  100  de lei in contul  Popescu
+
+7		->	Datele contului pe care sunteti logat curent sunt :
+			Nume :  Popescu
+			Parola :  123456
+			Sold :  100 
+
+1		->	Introduceti numele countului . Numele poate sa contina spatii sau simboluri : 
+radu		->	Introduceti parola . De poate trebuie sa contina spatii sau simboluri : 
+radu		->	Contul a fost creat cu succes
+
+(inca sunteti logat pe contul popescu)
+
+6		->	Selectati contul in care doriti sa transferati bani : 
+radu		->	Selectati suma pe care doriti sa o transferati : 
+50 		->	Ati transferat cu succes suma de  50  de lei din contul  Popescu  in contul  radu
+
+2		->	Introduceti numele contului : 
+radu		->	Introduceti parola contului : 
+radu		->	V-ati autentificat cu succes , bun venit  radu 
+
+			Suma currenta este de  50  lei
+
+1		->	Introduceti numele countului . Numele poate sa contina spatii sau simboluri : 
+radu		->	Introduceti parola . De poate trebuie sa contina spatii sau simboluri : 
+masa22		->	Contul exista deja
+
+ 
+
+		
